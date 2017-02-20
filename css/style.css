@@ -13,6 +13,10 @@ body {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+input[type="button"] {
+    font-family: "FontAwesome";
+}
+
 .character-info {
   margin-bottom: 40px;
 }
@@ -27,4 +31,8 @@ body {
 
 .main {
   margin-top: 40px;
+}
+
+.main-controls label, .speed label, .overlay-options label {
+  display: inline-block;
 }

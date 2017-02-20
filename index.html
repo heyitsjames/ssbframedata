@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Frame Display</title>
+    <link rel="stylesheet" style="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" style="text/css" href="css/normalize.css">
     <link rel="stylesheet" style="text/css" href="css/skeleton.css">
     <link rel="stylesheet" style="text/css" href="css/style.css">
@@ -43,27 +44,41 @@
             </optgroup>
           </select>
           <div class="main-controls">
-            <input id="playButton" type="button" onclick="playFrame()" value="Play">
-            <input id="pauseButton" type="button" onclick="pauseFrame()" value="Pause" >
+            <h5>Playback Controls</h5>
+            <input id="playButton" type="button" class="fa-input" onclick="playFrame()" value="&#xf04b">
+            <input id="pauseButton" type="button" class="fa-input" onclick="pauseFrame()" value="&#xf04c">
+            <label>
+              Repeat:
+              <input id="repeatCheckbox" type="checkbox" onclick="changeRepeat(this)">
+            </label>
           </div>
           <div class="frame-controls">
-            <input id="firstFrameButton" type="button" onclick="goToFirstFrame()" value="|<" >
-            <input id="previousFrameButton" type="button" onclick="goToPreviousFrame()" accesskey='b' value="<" >
-            <input id="manualFrameText" type="text" value="1" maxLength="3" size="1" onchange="changeManualFrame()">
+            <input id="firstFrameButton" type="button" class="fa-input" onclick="goToFirstFrame()" value="&#xf048">
+            <input id="previousFrameButton" type="button" class="fa-input" onclick="goToPreviousFrame()" accesskey='b' value="&#xf053">
+            <input id="manualFrameText" type="text" value="1" maxLength="3" size="2" onchange="changeManualFrame()">
             </span><span id="maxFrameSpan">/1</span>
-            <input id="nextFrameButton" type="button" onclick="goToNextFrame()" accesskey='n' value=">" >
-            <input id="lastFrameButton" type="button" onclick="goToLastFrame()" value=">|" >
+            <input id="nextFrameButton" type="button" class="fa-input" onclick="goToNextFrame()" accesskey='n' value="&#xf054">
+            <input id="lastFrameButton" type="button" class="fa-input" onclick="goToLastFrame()" value="&#xf051">
           </div>
           <div class="speed">
-            Speed :
-            <select id="selectSpeed" onchange="changeSpeed(this)">
-              <option value="15">15 FPS</option>
-              <option value="20">20 FPS</option>
-              <option value="30">30 FPS</option>
-            </select>
-            <input id="hitboxRadio" type="radio" name="displayModeRadio" value="hitbox" onclick="changeHitbox(this)">Hitbox
-            <input id="overlayRadio" type="radio" name="displayModeRadio" value="overlay" onclick="changeHitbox(this)">Overlay
-            Repeat: <input id="repeatCheckbox" type="checkbox" onclick="changeRepeat(this)">
+            <label>Speed :
+              <select id="selectSpeed" onchange="changeSpeed(this)">
+                <option value="15">15 FPS</option>
+                <option value="20">20 FPS</option>
+                <option value="30">30 FPS</option>
+              </select>
+            </label>
+          </div>
+          <div class="overlay-options">
+            <h5>Overlay Options</h5>
+            <label>
+              <input id="hitboxRadio" type="radio" name="displayModeRadio" value="hitbox" onclick="changeHitbox(this)">
+              Hitbox
+            </label>
+            <label>
+              <input id="overlayRadio" type="radio" name="displayModeRadio" value="overlay" onclick="changeHitbox(this)">
+              Overlay
+            </label>
           </div>
         </div>
 
