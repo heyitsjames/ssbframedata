@@ -119,7 +119,7 @@ function changeSourceVid()
 function changeChar()
 {
 	clearInterval(globalVar.frameTimer);
-  document.getElementsByTagName("h1")[0].innerHTML = "Character: " + characterObject[globalVar.character.value].name;
+  document.getElementsByClassName("character")[0].innerHTML = "Character: " + characterObject[globalVar.character.value].name;
   populateAttack(globalVar.character.value);
 }
 
@@ -147,7 +147,7 @@ function changeAtt(attDropdownObject)
 {
 	clearInterval(globalVar.frameTimer);
   // Changes the name of the 'Attack' title
-  document.getElementsByTagName("h2")[0].innerHTML = "Attack: " + characterObject[globalVar.character.value].move[globalVar.attack.value].name;
+  document.getElementsByClassName("attack")[0].innerHTML = "Attack: " + characterObject[globalVar.character.value].move[globalVar.attack.value].name;
   // Changes the number of maximum frames for the attack
   globalVar.maxFrame = characterObject[globalVar.character.value].move[globalVar.attack.value].totalFrames;
   document.getElementById("maxFrameSpan").innerHTML = '/' + globalVar.maxFrame;
