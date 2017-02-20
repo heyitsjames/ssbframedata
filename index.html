@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Frame Display</title>
+    <script src="framedisplay.js" type="text/javascript"></script>
+    <script src="characters.js" type="text/javascript"></script>
+    <script src="keypress.js" type="text/javascript"></script>
+  </head>
+  <style>
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1em; }
+  </style>
+  <body>
+    <select id="selectChar" onchange="changeChar()">
+      <optgroup label="Characters">
+      <option value="dk">Donkey Kong</option>
+      <option value="falcon">Captain Falcon</option>
+      <option value="fox">Fox</option>
+      <option value="purin">Jigglypuff</option>
+      <option value="kirby">Kirby</option>
+      <option value="link">Link</option>
+      <option value="luigi">Luigi</option>
+      <option value="mario">Mario</option>
+      <option value="ness">Ness</option>
+      <option value="pikachu">Pikachu</option>
+      <option value="samus">Samus</option>
+      <option value="yoshi">Yoshi</option>
+      </optgroup>
+    </select>
+    
+    <select id="selectAtt" onchange="changeAtt(this)">
+      <optgroup label="Attacks">
+      </optgroup>
+    </select>
+    
+    <h1></h1>
+
+    <h2></h2>
+
+    <video id="videoPlayer" width="640" height="480">
+			<source id="videoSource" src="" type="video/mp4">
+    </video>
+    
+    
+    <p>
+      <input id="playButton" type="button" onclick="playFrame()" value="Play">
+      <input id="pauseButton" type="button" onclick="pauseFrame()" value="Pause" >
+      &nbsp;
+      &nbsp;
+      <input id="firstFrameButton" type="button" onclick="goToFirstFrame()" value="|<" >
+      <input id="previousFrameButton" type="button" onclick="goToPreviousFrame()" accesskey='b' value="<" >
+      <input id="manualFrameText" type="text" value="1" maxLength="3" size="1" onchange="changeManualFrame()">
+      </span><span id="maxFrameSpan">/1</span>
+      <input id="nextFrameButton" type="button" onclick="goToNextFrame()" accesskey='n' value=">" >
+      <input id="lastFrameButton" type="button" onclick="goToLastFrame()" value=">|" >
+      <br>
+      Speed :
+      <select id="selectSpeed" onchange="changeSpeed(this)">
+        <option value="15">15 FPS</option>
+        <option value="20">20 FPS</option>
+        <option value="30">30 FPS</option>
+      </select>
+      &nbsp;
+      &nbsp;
+      <input id="hitboxRadio" type="radio" name="displayModeRadio" value="hitbox" onclick="changeHitbox(this)">Hitbox
+      <input id="overlayRadio" type="radio" name="displayModeRadio" value="overlay" onclick="changeHitbox(this)">Overlay
+      &nbsp;
+      &nbsp;
+      Repeat: <input id="repeatCheckbox" type="checkbox" onclick="changeRepeat(this)">
+    </p>
+  </body>
+</html>
