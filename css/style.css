@@ -33,6 +33,45 @@ input[type="button"] {
   margin-top: 40px;
 }
 
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
 .main-controls label, .speed label, .overlay-options label {
   display: inline-block;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+  .main.row {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .video-pane {
+    width: 90% !important;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 549px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .main.row {
+    display: block;
+  }
+  .video-pane {
+    width: 56.6666666667% !important;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }
