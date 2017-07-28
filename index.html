@@ -1,99 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Frame Display</title>
-    <link rel="stylesheet" style="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" style="text/css" href="css/normalize.css">
-    <link rel="stylesheet" style="text/css" href="css/skeleton.css">
-    <link rel="stylesheet" style="text/css" href="css/style.css">
-    <script src="framedisplay.js" type="text/javascript"></script>
-    <script src="characters.js" type="text/javascript"></script>
-    <script src="keypress.js" type="text/javascript"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+﻿<html>
+<body>
+<head>
+<title>Frame Display</title>
 
-      ga('create', 'UA-92265489-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="main row">
-        <div class="selector-pane five columns">
-          <div class="character-info">
-            <h3 class="character"></h3>
-            <h4 class="attack"></h4>
-          </div>
-          <select id="selectChar" onchange="changeChar()">
-            <optgroup label="Characters">
-            <option value="dk">Donkey Kong</option>
-            <option value="falcon">Captain Falcon</option>
-            <option value="fox">Fox</option>
-            <option value="purin">Jigglypuff</option>
-            <option value="kirby">Kirby</option>
-            <option value="link">Link</option>
-            <option value="luigi">Luigi</option>
-            <option value="mario">Mario</option>
-            <option value="ness">Ness</option>
-            <option value="pikachu">Pikachu</option>
-            <option value="samus">Samus</option>
-            <option value="yoshi">Yoshi</option>
-            </optgroup>
-          </select>
-          <select class="select-attack" id="selectAtt" onchange="changeAtt(this)">
-            <optgroup label="Attacks">
-            </optgroup>
-          </select>
-          <div class="main-controls">
-            <h5>Playback Controls</h5>
-            <input id="playButton" type="button" class="fa-input" onclick="playFrame()" value="&#xf04b">
-            <input id="pauseButton" type="button" class="fa-input" onclick="pauseFrame()" value="&#xf04c">
-            <label>
-              Repeat:
-              <input id="repeatCheckbox" type="checkbox" onclick="changeRepeat(this)">
-            </label>
-          </div>
-          <div class="frame-controls">
-            <input id="firstFrameButton" type="button" class="fa-input" onclick="goToFirstFrame()" value="&#xf048">
-            <input id="previousFrameButton" type="button" class="fa-input" onclick="goToPreviousFrame()" accesskey='b' value="&#xf053">
-            <input id="manualFrameText" type="text" value="1" maxLength="3" size="2" onchange="changeManualFrame()">
-            </span><span id="maxFrameSpan">/1</span>
-            <input id="nextFrameButton" type="button" class="fa-input" onclick="goToNextFrame()" accesskey='n' value="&#xf054">
-            <input id="lastFrameButton" type="button" class="fa-input" onclick="goToLastFrame()" value="&#xf051">
-          </div>
-          <div class="speed">
-            <label>Speed :
-              <select id="selectSpeed" onchange="changeSpeed(this)">
-                <option value="15">15 FPS</option>
-                <option value="20">20 FPS</option>
-                <option value="30">30 FPS</option>
-              </select>
-            </label>
-          </div>
-          <div class="overlay-options">
-            <h5>Overlay Options</h5>
-            <label>
-              <input id="hitboxRadio" type="radio" name="displayModeRadio" value="hitbox" onclick="changeHitbox(this)">
-              Hitbox
-            </label>
-            <label>
-              <input id="overlayRadio" type="radio" name="displayModeRadio" value="overlay" onclick="changeHitbox(this)">
-              Overlay
-            </label>
-          </div>
-        </div>
-
-        <div class="video-pane seven columns">
-          <video id="videoPlayer">
-            <source id="videoSource" src="" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+<style>
+.swbig {font-size: 16px; font-weight: bolder; font-family: Arial, Verdana}
+td {font-size: 12px; font-family: Arial, Verdana}
+</style></head><body bgcolor="#ffffff" link="#003399" text="#000000" leftmargin="0" rightmargin="0">
+<script type='text/javascript'>
+window.location='./webfd/framedisplay.html';
+</script>
+</body></html>
