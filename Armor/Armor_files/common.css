@@ -1,0 +1,121 @@
+.centered .ui-tabs-nav {
+  height: 2.2em;
+  text-align: center;
+}
+.centered .ui-tabs-nav li {
+  display: inline-block;
+  float: none;
+  margin: 0em;
+}
+.ui-tabs .ui-tabs-panel {
+  margin-top: -60px;
+  padding-top: 80px;
+}
+.stock,
+.stock.luigi,
+.stock.mario,
+.stock.dk,
+.stock.link,
+.stock.samus,
+.stock.falcon,
+.stock.ness,
+.stock.yoshi,
+.stock.kirby,
+.stock.fox,
+.stock.pika,
+.stock.puff {
+  float: left;
+  background: url("stock-icons.png");
+  width: 20px;
+  height: 20px;
+}
+.stock.luigi {
+  background-position: 0px 0px;
+}
+.stock.mario {
+  background-position: -20px 0px;
+}
+.stock.dk {
+  background-position: -40px 0px;
+}
+.stock.link {
+  background-position: -60px 0px;
+}
+.stock.samus {
+  background-position: -80px 0px;
+}
+.stock.falcon {
+  background-position: -100px 0px;
+}
+.stock.ness {
+  background-position: 0px -20px;
+}
+.stock.yoshi {
+  background-position: -20px -20px;
+}
+.stock.kirby {
+  background-position: -40px -20px;
+}
+.stock.fox {
+  background-position: -60px -20px;
+}
+.stock.pika {
+  background-position: -80px -20px;
+}
+.stock.puff {
+  background-position: -100px -20px;
+}
+.stock-big,
+.stock-big.luigi,
+.stock-big.mario,
+.stock-big.dk,
+.stock-big.link,
+.stock-big.samus,
+.stock-big.falcon,
+.stock-big.ness,
+.stock-big.yoshi,
+.stock-big.kirby,
+.stock-big.fox,
+.stock-big.pika,
+.stock-big.puff {
+  float: left;
+  background: url("stock-icons-big.png");
+  width: 40px;
+  height: 40px;
+}
+.stock-big.luigi {
+  background-position: 0px 0px;
+}
+.stock-big.mario {
+  background-position: -40px 0px;
+}
+.stock-big.dk {
+  background-position: -80px 0px;
+}
+.stock-big.link {
+  background-position: -120px 0px;
+}
+.stock-big.samus {
+  background-position: -160px 0px;
+}
+.stock-big.falcon {
+  background-position: -200px 0px;
+}
+.stock-big.ness {
+  background-position: 0px -40px;
+}
+.stock-big.yoshi {
+  background-position: -40px -40px;
+}
+.stock-big.kirby {
+  background-position: -80px -40px;
+}
+.stock-big.fox {
+  background-position: -120px -40px;
+}
+.stock-big.pika {
+  background-position: -160px -40px;
+}
+.stock-big.puff {
+  background-position: -200px -40px;
+}
