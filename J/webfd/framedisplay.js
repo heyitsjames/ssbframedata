@@ -17,7 +17,8 @@ function initSettings()
   // Sets the default form values
   globalVar.fps = 30
   globalVar.selectSpeed.value = "30";
-  globalVar.overlayRadio.checked = true;
+  globalVar.overlayRadio.checked = false;
+  globalVar.hitboxRadio.checked = true;
   globalVar.repeatAnim.checked = true;
   globalVar.videoPlayer.loop = true;
   globalVar.playing = false;
