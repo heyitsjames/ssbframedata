@@ -4,10 +4,10 @@ function initSettings()
 {
   // Assigns different page element to a global Object for easy names
   globalVar.repeatAnim = document.getElementById("repeatCheckbox");
-  globalVar.character = document.getElementsByTagName("h1")[0].innerHTML;
-  globalVar.attack = document.getElementsByTagName("h2")[0].innerHTML;
-  document.getElementsByTagName("h1")[0].innerHTML = characterObject[globalVar.character].name;
-  document.getElementsByTagName("h2")[0].innerHTML = characterObject[globalVar.character].move[globalVar.attack].name
+  globalVar.character = document.getElementById("character_display").innerHTML;
+  globalVar.attack = document.getElementById("move_display").innerHTML;
+  document.getElementById("character_display").innerHTML = characterObject[globalVar.character].name;
+  document.getElementById("move_display").innerHTML = characterObject[globalVar.character].move[globalVar.attack].name
   globalVar.maxFrame = characterObject[globalVar.character].move[globalVar.attack].totalFrames;
   document.getElementById("maxFrameSpan").innerHTML = "/" + globalVar.maxFrame;
   globalVar.hitboxRadio = document.getElementById("hitboxRadio");
