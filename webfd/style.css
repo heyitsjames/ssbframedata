@@ -8,6 +8,13 @@ body {
 	font-family: Verdana, Geneva, sans-serif;
 }
 
+#character_picker {
+	width: 100%;
+	max-width: 650px;
+	margin: auto;
+	text-align: center;
+}
+
 #character_display {
 	font-size: 1.3em;
 }
@@ -27,6 +34,8 @@ body {
 }
 
 #videoPlayer {
+	width: 100%;
+	max-width: 480px;
 	margin-top: 10px;
 }
 
@@ -70,10 +79,28 @@ body {
 	color: #FFF;
 }
 
-@media (max-width: 600px) {
-	#links {
-		position: absolute;
-		left: 5;
-		bottom: 5;
+@media (max-width: 1000px) {
+	#links, #p1 { /* this stuff is relatively unimportant */
+		display: none;
+	}
+	#character_picker {
+		max-width: 400px;
+	}
+	#character_picker img {
+		width: 60px;
+		height: 60px;
+	}
+	#display_container {
+		box-sizing: border-box;
+		margin: 0 !important;
+		padding: 0 10px;
+		width: 100% !important;
+	}
+	#play_controls {
+		width: 100%;
+		font-size: 14px;
+	}
+	#play_controls input {
+		font-size: 14px;
 	}
 }
