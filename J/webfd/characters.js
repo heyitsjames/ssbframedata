@@ -282,25 +282,25 @@
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
         ]
       },"tilt-f-h": {
-        "blueFrames": null,"greenFrames": null,"name": "横強上シフト (Ftilt high)","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強上シフト(2段階) (Ftilt high)","redFrames": [
           9,10,11,12,13,14,15
         ],"totalFrames": 29,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
         ]
       },"tilt-f-l": {
-        "blueFrames": null,"greenFrames": null,"name": "横強下シフト (Ftilt low)","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強下シフト(2段階) (Ftilt low)","redFrames": [
           9,10,11,12,13,14,15
         ],"totalFrames": 29,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
         ]
       },"tilt-f-mh": {
-        "blueFrames": null,"greenFrames": null,"name": "横強 (Ftilt) mid-high","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強上シフト(1段階)(Ftilt)","redFrames": [
           9,10,11,12,13,14,15
         ],"totalFrames": 29,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
         ]
       },"tilt-f-ml": {
-        "blueFrames": null,"greenFrames": null,"name": "横強 (Ftilt) mid-low","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強下シフト(1段階)(Ftilt)","redFrames": [
           9,10,11,12,13,14,15
         ],"totalFrames": 29,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
@@ -430,25 +430,25 @@
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
         ]
       },"tilt-f-h": {
-        "blueFrames": null,"greenFrames": null,"name": "横強上シフト (Ftilt high)","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強上シフト(2段階) (Ftilt high)","redFrames": [
           6,7,8,9,10,11,12,13
         ],"totalFrames": 26,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
         ]
       },"tilt-f-l": {
-        "blueFrames": null,"greenFrames": null,"name": "横強下シフト (Ftilt low)","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強下シフト(2段階) (Ftilt low)","redFrames": [
           6,7,8,9,10,11,12,13
         ],"totalFrames": 26,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
         ]
       },"tilt-f-mh": {
-        "blueFrames": null,"greenFrames": null,"name": "横強 (Ftilt) mid-high","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強上シフト(１段階)(Ftilt mh)","redFrames": [
           6,7,8,9,10,11,12,13
         ],"totalFrames": 26,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
         ]
       },"tilt-f-ml": {
-        "blueFrames": null,"greenFrames": null,"name": "横強 (Ftilt) mid-low","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強下シフト(１段階) (Ftilt ml)","redFrames": [
           6,7,8,9,10,11,12,13
         ],"totalFrames": 26,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
@@ -792,25 +792,25 @@
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-h": {
-        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト （Fsmash high）","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト(2段階)(Fsmash high）","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-l": {
-        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト （Fsmash low）","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト(2段階)(Fsmash low）","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-mh": {
-        "blueFrames": null,"greenFrames": null,"name": "Forward smash mid-high","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト(１段階)(Fsmash mh)","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-ml": {
-        "blueFrames": null,"greenFrames": null,"name": "Forward smash mid-low","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト(１段階)(Fsmash ml)","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
@@ -950,25 +950,25 @@
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53
         ]
       },"smash-f-h": {
-        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト （Fsmash high）","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト(2段階)(Fsmash high)","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 53,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53
         ]
       },"smash-f-l": {
-        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト （Fsmash low）","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト(2段階)(Fsmash low）","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 53,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53
         ]
       },"smash-f-mh": {
-        "blueFrames": null,"greenFrames": null,"name": "Forward smash mid-high","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト(1段階)(Fsmash mh)","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 53,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53
         ]
       },"smash-f-ml": {
-        "blueFrames": null,"greenFrames": null,"name": "Forward smash mid-low","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト(1段階)(Fsmash ml)","redFrames": [
           16,17,18,19,20
         ],"totalFrames": 53,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53
@@ -1488,25 +1488,25 @@
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-h": {
-        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト （Fsmash high）","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト(2段階)(Fsmash high)","redFrames": [
           12,13,14,15
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-l": {
-        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト （Fsmash low）","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト(2段階)(Fsmash low)","redFrames": [
           12,13,14,15
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-mh": {
-        "blueFrames": null,"greenFrames": null,"name": "Forward smash mid-high","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ上シフト(1段階)(Fsmash mh)","redFrames": [
           12,13,14,15
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
         ]
       },"smash-f-ml": {
-        "blueFrames": null,"greenFrames": null,"name": "Forward smash mid-low","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横スマ下シフト(1段階)(Fsmash ml)","redFrames": [
           12,13,14,15
         ],"totalFrames": 41,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
@@ -1562,25 +1562,25 @@
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
         ]
       },"tilt-f-h": {
-        "blueFrames": null,"greenFrames": null,"name": "横強上シフト (Ftilt high)","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強上シフト(2段階)(Ftilt high)","redFrames": [
           7,8,9,10,11
         ],"totalFrames": 31,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
         ]
       },"tilt-f-l": {
-        "blueFrames": null,"greenFrames": null,"name": "横強下シフト (Ftilt low)","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強下シフト(2段階)(Ftilt low)","redFrames": [
           7,8,9,10,11
         ],"totalFrames": 31,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
         ]
       },"tilt-f-mh": {
-        "blueFrames": null,"greenFrames": null,"name": "横強 (Ftilt) mid-high","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強上シフト(1段階)(Ftilt mh)","redFrames": [
           7,8,9,10,11
         ],"totalFrames": 31,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
         ]
       },"tilt-f-ml": {
-        "blueFrames": null,"greenFrames": null,"name": "横強 (Ftilt) mid-low","redFrames": [
+        "blueFrames": null,"greenFrames": null,"name": "横強下シフト(1段階)(Ftilt ml)","redFrames": [
           7,8,9,10,11
         ],"totalFrames": 31,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
@@ -1668,7 +1668,7 @@
       },"smash-f-h": {
         "blueFrames": [
           6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
-        ],"greenFrames": null,"name": "横スマ上シフト （Fsmash high）","redFrames": [
+        ],"greenFrames": null,"name": "横スマ上シフト(2段階)(Fsmash high)","redFrames": [
           18,19,20,21,22,23,24
         ],"totalFrames": 50,"yellowFrames": [
           1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
