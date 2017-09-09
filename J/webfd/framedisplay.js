@@ -1,4 +1,4 @@
-﻿var globalVar = new Object();
+var globalVar = new Object();
 
 function initSettings()
 {
@@ -17,8 +17,7 @@ function initSettings()
   // Sets the default form values
   globalVar.fps = 30
   globalVar.selectSpeed.value = "30";
-  globalVar.overlayRadio.checked = false;
-  globalVar.hitboxRadio.checked = true;
+  globalVar.overlayRadio.checked = true;
   globalVar.repeatAnim.checked = true;
   globalVar.videoPlayer.loop = true;
   globalVar.playing = false;
@@ -95,7 +94,7 @@ function changeChar(elmnt)
 {
   globalVar.playing = false;
   //console.log(globalVar.playing);
-  document.getElementsByTagName("h1")[0].innerHTML = "キャラ (char): " + characterObject[globalVar.character.value].name; //change for new select
+  document.getElementsByTagName("h1")[0].innerHTML = "キャラ (Char): " + characterObject[globalVar.character.value].name; //change for new select
   populateAttack(globalVar.character.value);
 }
 
@@ -122,8 +121,6 @@ function populateAttack(charSelected)
 function changeAtt(attDropdownObject)
 {
   globalVar.playing = false;
-  // Changes the name of the 'Attack' title
-  document.getElementsByTagName("h2")[0].innerHTML = "Attack: " + characterObject[globalVar.character.value].move[globalVar.attack.value].name;
   // Changes the number of maximum frames for the attack
   globalVar.maxFrame = characterObject[globalVar.character.value].move[globalVar.attack.value].totalFrames
   document.getElementById("maxFrameSpan").innerHTML = '/' + globalVar.maxFrame;
