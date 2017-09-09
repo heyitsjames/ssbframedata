@@ -1,189 +1,156 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Frame Display</title>
-    <script src="framedisplay.js" type="text/javascript"></script>
-    <script src="characters.js" type="text/javascript"></script>
-    <script src="keypress.js" type="text/javascript"></script>
-  </head>
-  <style>
-    h1 { font-size: 1.3em; }
-    h2 { font-size: 1em; }
-	
-	.char_select
-	{
-		/*border-style: solid;
-		border-width: 2px;
-		border-color: #1F1F1F;*/
-	}
-	
-	.link_inline {
-		/*font-family: SmashFont;*/
-		color: white;
-		text-decoration: underline;
-		display: inline-block;
-		cursor: pointer;
-		font-size: 16pt;
-	}
-
-	.link_inline:hover {
-		background: rgb(185,3,3); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(185,3,3,1) 0%, rgba(154,2,2,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(185,3,3,1)), color-stop(100%,rgba(154,2,2,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(185,3,3,1) 0%,rgba(154,2,2,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(185,3,3,1) 0%,rgba(154,2,2,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(185,3,3,1) 0%,rgba(154,2,2,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(185,3,3,1) 0%,rgba(154,2,2,1) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b90303', endColorstr='#9a0202',GradientType=0 ); /* IE6-9 */
-	}
-	#links {
-		position: absolute;
-		left: 5;
-		top: 5;
-	}
-	@media(max-width: 600px) {
-		#links {
-			position: absolute;
-			left: 5;
-			bottom: 5;
-		}
-	}
-  </style>
-  <body style='background-color: #1F1F1F; color: #FFFFFF;'>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Frame Display</title>
+	<script src="framedisplay.js" type="text/javascript"></script>
+	<script src="characters.js" type="text/javascript"></script>
+	<script src="keypress.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
 <div id='links'>
-<a href='../images/autocancelchart.png' target='_blank' class='link_inline'>Aerial Auto Cancel Chart</a>
-<br>
-<a href='https://drive.google.com/file/d/0B_arUxj76oi7aDh2TWlubGZHYkE/view' target='_blank' class='link_inline'>Frame data by numbers</a>
-<br>
-<a href='../images/charpropertieschart.jpg' target='_blank' class='link_inline'>Character properties</a>
-<br>
-<a href='https://docs.google.com/document/d/1dlC7UM9iVtghs03YzMJt0Cernsx1hSVsd16itKPx2UQ/edit' target='_blank' class='link_inline'>Controller Guide</a>
-<br>
-<a href='../Armor/Armor.html' target='_blank' class='link_inline'>Yoshi Armor Break %s</a>
-<br>
+	<h2>Other Resources</h2>
+	<a href='../images/autocancelchart.png' target='_blank' class='link_inline'>Aerial Auto Cancel Chart</a>
+	<a href='https://drive.google.com/file/d/0B_arUxj76oi7aDh2TWlubGZHYkE/view' target='_blank' class='link_inline'>Frame data by numbers</a>
+	<a href='../images/charpropertieschart.jpg' target='_blank' class='link_inline'>Character properties</a>
+	<a href='https://docs.google.com/document/d/1dlC7UM9iVtghs03YzMJt0Cernsx1hSVsd16itKPx2UQ/edit' target='_blank' class='link_inline'>Controller Guide</a>
+	<a href='../Armor/Armor.html' target='_blank' class='link_inline'>Yoshi Armor Break %s</a>
 </div>
 
 <div style='min-width: 450px; height: auto; width: auto; margin-left: auto; margin-right: auto;'>
 
-<div style=''>
-<table border=0 style='margin-left: auto; margin-right: auto;'>
-<tr>
-<td class='char_select'>
-<img style='cursor: pointer;' id='luigi_select' src='../images/luigi_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="luigi"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='mario_select' src='../images/mario_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="mario"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='dk_select' src='../images/dk_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="dk"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='link_select' src='../images/link_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="link"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='samus_select' src='../images/samus_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="samus"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='falcon_select' src='../images/falcon_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="falcon"; changeChar(); })(this)'>
-</td>
-</tr>
-<tr>
-<td class='char_select'>
-<img style='cursor: pointer;' id='ness_select' src='../images/ness_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="ness"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='yoshi_select' src='../images/yoshi_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="yoshi"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='kirby_select' src='../images/kirby_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="kirby"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='fox_select' src='../images/fox_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="fox"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='pika_select' src='../images/pika_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="pikachu"; changeChar(); })(this)'>
-</td>
-<td class='char_select'>
-<img style='cursor: pointer;' id='jiggly_select' src='../images/jiggly_select.png' onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="purin"; changeChar(); })(this)'>
-</td>
-</tr>
-</table>
-<input type='hidden' id='selectCharHidden' value='luigi'>
-</div>
-<div style='float: none; clear: both'>
-</div>
-<div style='display: table; margin-left: auto; margin-right: auto;'>
-<div id='p1' style='float: left; vertical-align: middle;'>
-<div id='p1_select' style='margin-top: 5%; vertical-align: middle; height: 375px; width: 262px; background-repeat: no-repeat; background-size: 100% 100%; background-image: url("../images/panel1.png");'>
-<img src="../images/luigi_card.png" style='width: 100%; height: 100%;'>
-</div>
-</div>
-<div style='float: right;'>
- <div style='margin-left: 5%; width: 600px;'>
-    <!--<select id="selectChar" onchange="changeChar()">
-      <optgroup label="Characters">
-      <option value="dk">Donkey Kong</option>
-      <option value="falcon">Captain Falcon</option>
-      <option value="fox">Fox</option>
-      <option value="purin">Jigglypuff</option>
-      <option value="kirby">Kirby</option>
-      <option value="link">Link</option>
-      <option value="luigi">Luigi</option>
-      <option value="mario">Mario</option>
-      <option value="ness">Ness</option>
-      <option value="pikachu">Pikachu</option>
-      <option value="samus">Samus</option>
-      <option value="yoshi">Yoshi</option>
-      </optgroup>
-    </select>-->
-    <select id="selectAtt" onchange="changeAtt(this)">
-      <optgroup label="Attacks">
-      </optgroup>
-    </select>
-    <br>
-    <h1 style='display: inline;'></h1>
-    <br>
-    <h2 style='display: inline;'></h2>
-	<br>
-	
-    <video id="videoPlayer" width="480" height="360">
-    </video>
-	
-		
-	<p>
-      <input id="playButton" type="button" onclick="playFrame()" value="Play">
-      <input id="pauseButton" type="button" onclick="pauseFrame()" value="Pause" >
-      &nbsp;
-      &nbsp;
-      <input id="firstFrameButton" type="button" onclick="goToFirstFrame()" value="|<" >
-      <input id="previousFrameButton" type="button" onclick="goToPreviousFrame()" accesskey='b' value="<" >
-      <input id="manualFrameText" type="text" value="1" maxLength="3" size="1" onchange="changeManualFrame()">
-      </span><span id="maxFrameSpan">/1</span>
-      <input id="nextFrameButton" type="button" onclick="goToNextFrame()" accesskey='n' value=">" >
-      <input id="lastFrameButton" type="button" onclick="goToLastFrame()" value=">|" >
-      <br>
-      Speed :
-      <select id="selectSpeed" onchange="changeSpeed(this)">
-        <option value="15">15 FPS</option>
-        <option value="20">20 FPS</option>
-        <option value="30">30 FPS</option>
-      </select>
-      &nbsp;
-      &nbsp;
-      <input id="hitboxRadio" type="radio" name="displayModeRadio" value="hitbox" onclick="changeHitbox(this)">Hitbox
-      <input id="overlayRadio" type="radio" name="displayModeRadio" value="overlay" onclick="changeHitbox(this)">Overlay
-      &nbsp;
-      &nbsp;
-      Repeat: <input id="repeatCheckbox" type="checkbox" onclick="changeRepeat(this)">
-    </p>
-	
- </div>
-</div>
+	<div style=''>
+		<table border=0 style='margin-left: auto; margin-right: auto;'>
+			<tr>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='luigi_select' src='../images/luigi_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="luigi"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='mario_select' src='../images/mario_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="mario"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='dk_select' src='../images/dk_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="dk"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='link_select' src='../images/link_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="link"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='samus_select' src='../images/samus_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="samus"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='falcon_select' src='../images/falcon_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="falcon"; changeChar(); })(this)'>
+				</td>
+			</tr>
+			<tr>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='ness_select' src='../images/ness_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="ness"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='yoshi_select' src='../images/yoshi_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="yoshi"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='kirby_select' src='../images/kirby_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="kirby"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='fox_select' src='../images/fox_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="fox"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='pika_select' src='../images/pika_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="pikachu"; changeChar(); })(this)'>
+				</td>
+				<td class='char_select'>
+					<img style='cursor: pointer;' id='jiggly_select' src='../images/jiggly_select.png'
+						 onclick='(function(elmnt) { document.getElementById("p1_select").innerHTML="<img src=\"../images/" + elmnt.id.replace("_select","") + "_card.png\" style=\"width: 100%; height: 100%;\">"; document.getElementById("selectCharHidden").value="purin"; changeChar(); })(this)'>
+				</td>
+			</tr>
+		</table>
+		<input type='hidden' id='selectCharHidden' value='luigi'>
+	</div>
+	<div style='float: none; clear: both'>
+	</div>
+	<div style='display: table; margin-left: auto; margin-right: auto;'>
+		<div id='p1' style='float: left; vertical-align: middle;'>
+			<div id='p1_select'
+				 style='margin-top: 25px; vertical-align: middle; height: 375px; width: 262px; background-repeat: no-repeat; background-size: 100% 100%; background-image: url("../images/panel1.png");'>
+				<img src="../images/luigi_card.png" style='width: 100%; height: 100%;'>
+			</div>
+		</div>
+		<div style='float: right;'>
+			<div style='margin-left: 5%; width: 600px;'>
+				<!--<select id="selectChar" onchange="changeChar()">
+				  <optgroup label="Characters">
+				  <option value="dk">Donkey Kong</option>
+				  <option value="falcon">Captain Falcon</option>
+				  <option value="fox">Fox</option>
+				  <option value="purin">Jigglypuff</option>
+				  <option value="kirby">Kirby</option>
+				  <option value="link">Link</option>
+				  <option value="luigi">Luigi</option>
+				  <option value="mario">Mario</option>
+				  <option value="ness">Ness</option>
+				  <option value="pikachu">Pikachu</option>
+				  <option value="samus">Samus</option>
+				  <option value="yoshi">Yoshi</option>
+				  </optgroup>
+				</select>-->
+				<br>
+				<h1 id="character_display" style='display: inline;'></h1>
+				<br>
+				<h2 id="move_display" style='display: inline;'>Attack: </h2>
+				<select id="selectAtt" onchange="changeAtt(this)">
+					<optgroup label="Attacks">
+					</optgroup>
+				</select>
+				<br>
+
+				<video id="videoPlayer" width="480" height="360">
+				</video>
+
+
+				<div id="play_controls">
+					<input id="playButton" type="button" onclick="playFrame()" value="Play">
+					<input id="pauseButton" type="button" onclick="pauseFrame()" value="Pause">
+					<br>
+					<input id="firstFrameButton" type="button" onclick="goToFirstFrame()" value="|<">
+					<input id="previousFrameButton" type="button" onclick="goToPreviousFrame()" accesskey='b' value="<">
+					<input id="manualFrameText" type="text" value="1" maxLength="3" size="1"
+						   onchange="changeManualFrame()">
+					</span><span id="maxFrameSpan">/1</span>
+					<input id="nextFrameButton" type="button" onclick="goToNextFrame()" accesskey='n' value=">">
+					<input id="lastFrameButton" type="button" onclick="goToLastFrame()" value=">|">
+					<br>
+					Speed :
+					<select id="selectSpeed" onchange="changeSpeed(this)">
+						<option value="15">15 FPS</option>
+						<option value="20">20 FPS</option>
+						<option value="30">30 FPS</option>
+					</select>
+					&nbsp;
+					<input id="hitboxRadio" type="radio" name="displayModeRadio" value="hitbox"
+						   onclick="changeHitbox(this)">Hitbox
+					<input id="overlayRadio" type="radio" name="displayModeRadio" value="overlay"
+						   onclick="changeHitbox(this)">Overlay
+					&nbsp;
+					Repeat: <input id="repeatCheckbox" type="checkbox" onclick="changeRepeat(this)">
+				</div>
+
+			</div>
+		</div>
+
+	</div>
 
 </div>
 
-</div>
-
-  </body>
+</body>
 </html>

@@ -1,0 +1,79 @@
+body, html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #1F1F1F;
+	color: #FFFFFF;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#character_display {
+	font-size: 1.3em;
+}
+
+#move_display {
+	font-size: 1em;
+}
+
+#selectAtt {
+	background-color: #1F1F1F;
+	color: #FFF;
+	font-size: 1em;
+	border: solid 1px #666;
+}
+#selectAtt:hover {
+	box-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+
+#videoPlayer {
+	margin-top: 10px;
+}
+
+#play_controls {
+	width: 480px;
+	text-align: center;
+	line-height: 2;
+	font-size: 18px;
+}
+#play_controls input {
+	color: #FFF;
+	background-color: transparent;
+	border: solid 1px #666;
+	font-size: 18px;
+	text-align: center;
+}
+#play_controls input[type="button"] {
+	background-color: #434343;
+}
+
+#links {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	padding: 10px 20px;
+	background-color: #2d2d2d;
+}
+
+.link_inline {
+	/*font-family: SmashFont;*/
+	display: block;
+	color: #CCC;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 1.7;
+	text-decoration: none;
+}
+
+.link_inline:hover {
+	color: #FFF;
+}
+
+@media (max-width: 600px) {
+	#links {
+		position: absolute;
+		left: 5;
+		bottom: 5;
+	}
+}

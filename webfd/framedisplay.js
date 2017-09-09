@@ -121,8 +121,6 @@ function populateAttack(charSelected)
 function changeAtt(attDropdownObject)
 {
   globalVar.playing = false;
-  // Changes the name of the 'Attack' title
-  document.getElementsByTagName("h2")[0].innerHTML = "Attack: " + characterObject[globalVar.character.value].move[globalVar.attack.value].name;
   // Changes the number of maximum frames for the attack
   globalVar.maxFrame = characterObject[globalVar.character.value].move[globalVar.attack.value].totalFrames
   document.getElementById("maxFrameSpan").innerHTML = '/' + globalVar.maxFrame;
