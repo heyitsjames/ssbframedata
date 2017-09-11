@@ -1,2 +1,2 @@
 # ssbframedata
-Frame data for SSB64
+Version of SSB frame display using shear's original code and stylesheets
