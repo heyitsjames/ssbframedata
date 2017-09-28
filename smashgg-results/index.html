@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style type="text/css">
+    body {
+        color: #000000;
+    }
+
+    #results {
+        width: 100%;
+        height: auto;
+    }
+
+    #fetchBtn,
+    #setEvent {
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>SMASH.GG RESULTS PROGRAM</h1> **Instructions:**
+    <br> 1. Enter the name of the event and click 'Set Event'. If you don't do this first then you'll have to click 'Fetch Results' twice since the calls are asynchronous.
+    <br> 2. Enter the phase ID of the phase you want to pull. This can be found in a phase URL.
+    <br> 3. Click 'Fetch Results'.
+    <br>
+    <br>
+    <input type='text' value='' placeholder='Event Name from URL (i.e. shine-2017)' size='48' id='eventName'>&nbsp;&nbsp;&nbsp;
+    <input type='button' value='Set Event' id='setEvent' onclick='setEvent()'>
+    <-- click this first <br>
+        <br>
+        <input type='text' value='' placeholder='Phase ID from URL' size='48' id='phaseID'>&nbsp;&nbsp;&nbsp;
+        <input type='button' value='Fetch Results' id='fetchBtn' onclick='fetchResults()'>
+        <br>
+        <br>
+        <input type='checkbox' id='delimiter'>Separate by new line (default is space)
+        <hr>
+        <div id="results"></div>
+        <script type="text/javascript">
+        var results = [];
+        var bracket;
+        var groups = [];
+        var eventName = "";
+
+        function setResults() {
+            var matches = "";
+            var delimiter = ",&nbsp;&nbsp;&nbsp;";
+            if ($('#delimiter').is(':checked')) {
+                delimiter = "<br>";
+            }
+            for (var key in results) {
+                if (bracket == results[key][0]) {
+                    matches = matches + results[key][1] + delimiter;
+                }
+            }
+            if (matches != "") {
+                $("#results").html(matches);
+            }
+        }
+        setInterval(function() { setResults(); }, 1000);
+
+        function setEvent() {
+            if (eventName != $('#eventName').val()) {
+                eventName = $('#eventName').val();
+                $.getJSON("https://cors.io/?https://api.smash.gg/tournament/" + eventName + "?expand[]=event&expand[]=phase&expand[]=groups&expand[]=seeds&expand[]=sets", function(f) {
+                    var group = f.entities.groups;
+                    var k = 0;
+                    while (k < group.length) {
+                        groups[group[k].id] = group[k].phaseId;
+                        k++;
+                    }
+                });
+            }
+        }
+
+        function fetchResults() {
+
+            $("#results").html("Loading...");
+
+            if (eventName != $('#eventName').val()) {
+                eventName = $('#eventName').val();
+                $.getJSON("https://cors.io/?https://api.smash.gg/tournament/" + eventName + "?expand[]=event&expand[]=phase&expand[]=groups&expand[]=seeds&expand[]=sets", function(f) {
+                    var group = f.entities.groups;
+                    var k = 0;
+                    while (k < group.length) {
+                        groups[group[k].id] = group[k].phaseId;
+                        k++;
+                    }
+                });
+            }
+            bracket = parseInt($('#phaseID').val()) || 0;
+
+            for (var h in groups) {
+                if (bracket == groups[h] && groups[h] > 0 && bracket > 0) {
+                    $.getJSON("https://cors.io/?https://api.smash.gg/phase_group/" + h + "?expand%5B%5D=sets&expand%5B%5D=standings&expand%5B%5D=seeds", function(f) {
+                        var tempKey = 0;
+                        var entrants = f.entities.seeds;
+                        var sets = f.entities.sets;
+                        var id = f.entities.groups.id;
+                        var phaseid = f.entities.groups.phaseId;
+                        var entrantId;
+                        var i = 0;
+                        var count = 0;
+                        var entrantArr = [];
+                        var winner;
+                        var loser;
+                        while (i < entrants.length) {
+                            for (var key in entrants[i].mutations.participants) {
+                                for (var key2 in entrants[i].mutations.entrants) {
+                                    if (entrants[i].mutations.entrants[key2].participantIds[0] == key) {
+                                        entrantArr[entrants[i].mutations.entrants[key2].id] = entrants[i].mutations.participants[key].gamerTag;
+                                    }
+                                }
+                            }
+                            i++;
+                        }
+                        i = 0;
+                        while (i < sets.length) {
+                            if (sets[i].winnerId != null && sets[i].loserId != null) {
+                                if (sets[i].winnerId == sets[i].entrant1Id) {
+                                    winner = sets[i].entrant1Score;
+                                    loser = sets[i].entrant2Score;
+                                } else {
+                                    loser = sets[i].entrant1Score;
+                                    winner = sets[i].entrant2Score;
+                                }
+                                if (loser < 0) {
+                                    loser = "DQ"
+                                }
+                                if (winner < 0) {
+                                    winner = "DQ"
+                                }
+                                results[sets[i].id] = [phaseid, entrantArr[sets[i].winnerId] + " DEFEATS " + entrantArr[sets[i].loserId] + " (" + winner + "-" + loser + ")"];
+                                count++;
+                            }
+                            i++;
+                        }
+                    });
+                }
+            }
+
+        }
+        </script>
+</body>
+
+</html>
