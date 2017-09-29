@@ -42,6 +42,7 @@
         var bracket;
         var groups = [];
         var eventName = "";
+        var phaseName = "";
 
         function setResults() {
             var matches = "";
@@ -55,7 +56,7 @@
                 }
             }
             if (matches != "") {
-                $("#results").html(matches);
+                $("#results").html("<h1>" + phaseName + "</h1>" + matches);
             }
         }
         setInterval(function() { setResults(); }, 1000);
@@ -90,6 +91,12 @@
                 });
             }
             bracket = parseInt($('#phaseID').val()) || 0;
+
+            if (bracket > 0) {
+                $.getJSON("https://cors.io/?https://api.smash.gg/phase/" + bracket + "?expand[]=brackets", function(f) {
+                    phaseName = f.entities.phase.name;
+                });
+            }
 
             for (var h in groups) {
                 if (bracket == groups[h] && groups[h] > 0 && bracket > 0) {
@@ -130,6 +137,12 @@
                                 }
                                 if (winner < 0) {
                                     winner = "DQ"
+                                }
+                                if (winner == null) {
+                                    winner = "W";
+                                }
+                                if (loser == null) {
+                                    loser = "L";
                                 }
                                 results[sets[i].id] = [phaseid, entrantArr[sets[i].winnerId] + " DEFEATS " + entrantArr[sets[i].loserId] + " (" + winner + "-" + loser + ")"];
                                 count++;
