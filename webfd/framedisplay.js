@@ -76,7 +76,10 @@ function initSettings()
 
   if (typeof urlChar !== 'undefined'){
       document.getElementById("selectCharHidden").value=urlChar;
-      document.getElementById("p1_select").innerHTML="<img src=\"../images/" + urlChar + "_card.png\" style=\"width: 100%; height: 100%;\">";
+      document.getElementById("p1_select").innerHTML="<img src=\"../images/" + urlChar + "_card.png\" style=\"width: 100%; height: 100%;\">"
+      if(urlChar == "purin"){
+        document.getElementById("p1_select").innerHTML="<img src=\"../images/jiggly_card.png\" style=\"width: 100%; height: 100%;\">"
+      }
       console.log(urlMove);
       changeChar();
       globalVar.attack.value=urlMove
