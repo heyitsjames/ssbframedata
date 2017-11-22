@@ -1,0 +1,263 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style type="text/css">
+
+body {
+	color: #000000;
+}
+
+#results {
+	width: 100%;
+	height: auto;
+}
+
+#playerTag {
+	font-weight: bold;
+}
+
+input[type=button] {
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+	<h1>SMASH.GG RESULTS PROGRAM</h1>
+	**Instructions:**
+	<br>
+	1. Enter the name of the event and click 'Set Event'.
+	<br>
+	2. Click 'Fetch Results'.
+	<br>
+	3. Select which phase and results you want to show.
+	<br>
+	4. Filter by player
+	<br>
+	Note: Smashgg doesn't currently support CORS so a CORS proxy is used. These proxies sometimes fail so if you are not getting any results check the event name is entered correctly and select another CORS proxy.
+	<br><br>
+	<input type='text' value='' placeholder='Event Name from URL (i.e. shine-2017)' size='48' id='eventName'>&nbsp;&nbsp;&nbsp;<input type='button' value='Set Event' id='setEvent' onclick='setEvent()'> <-- click this first &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CORS Proxy: <input type='button' value='1' onclick='setCors(this)'>&nbsp;&nbsp;&nbsp;<input type='button' value='2' onclick='setCors(this)'>&nbsp;&nbsp;&nbsp;<input type='button' value='3' onclick='setCors(this)'>
+	<br><br>
+	<input type='button' value='Fetch Results' id='fetchBtn' onclick='fetchResults()'> <-- click this second, after event is set
+	<br><br>
+	<select id='phaseID'><option value=0 selected='selected'>All</option></select> <-- select which results you want to show
+	<br><br>
+	<input type='text' value='' placeholder='Filter by player, leave blank for all' size='30' id='playerID' list="players" onclick='(function(elmnt) { elmnt.value=""; })(this)'> <span id='playerTag'></span> <-- select which player you want to show
+	<datalist id="players">
+	</datalist>
+	<br><br>
+	<input type='checkbox' id='delimiter'>Separate by new line (default is space)
+	<hr>
+	<div id="results"></div>
+
+<script type="text/javascript">
+	
+	var results = [];
+	var brackets = [];
+	var bracket;
+	var groups = [];
+	var players = [];
+	var playerCount = 0;
+	var eventName = "";
+	var phaseName = "";
+	var cors1 = "https://cors.io/?";
+	var cors2 = "https://cors-anywhere.herokuapp.com/";
+	var cors3 = "";
+	var activeCors = cors1;
+	
+	function setCors(elmnt) {
+		if (elmnt.value=="1") {
+			activeCors = cors1;
+		}
+		if (elmnt.value=="2") {
+			activeCors = cors2;
+		}
+		if (elmnt.value=="3") {
+			activeCors = cors3;
+		}
+	}
+	
+	$('#playerID').bind('input', function(e) {
+		var input = e.target;
+		var options = $('#players option');
+		var inputValue = input.value;
+
+		for(var i = 0; i < options.length; i++) {
+			var option = options[i];
+
+			if(option.value == inputValue) {
+				$('#playerTag').html(option.getAttribute('data-value'));
+				break;
+			}
+		}
+	});
+	
+	function setResults() {
+		var matches = "";
+		var delimiter = ",&nbsp;&nbsp;&nbsp;";
+		var phases = [];
+		var selected = $('#phaseID').find(":selected").val();
+		var playerSelect = $('#playerID').val();
+		if ((playerCount)!=$('#players').children('option').length) {
+			var selectBuild = "";
+			for (var i in players) {
+				selectBuild = selectBuild + "<option data-value='" + players[i][0] + "' value=" + i + ">" + players[i][0] + "</option>";
+			}
+			$("#players").html(selectBuild);
+		}
+		for (var phase in brackets) {
+			phases[phase] = [];
+			phases[phase][0] = "";
+		}
+		if ($('#delimiter').is(':checked')) {
+			delimiter = "<br>";
+		}
+		for (var key in results) {
+			for (var phase in brackets) {
+				if (phase==results[key][0]) {
+					phases[phase][0] = phases[phase][0] + results[key][1] + delimiter;
+					phases[phase][key] = results[key][1];
+				}
+			}
+		}
+		for (var i in phases) {
+			if (phases[i][0]!="" && (i==selected || selected==0)) {
+				if (playerSelect>0) {
+					var check=0;
+					for (var k in players[playerSelect]) {
+						if (k>0) {
+							if (typeof phases[i][k] != "undefined") {
+								if (check==0) {
+									matches = matches + "<h1>" + brackets[i] + "</h1>";
+									check=1;
+								}
+								matches = matches + players[playerSelect][k] + delimiter;
+							}
+						}
+					}
+				} else {
+					matches = matches + "<h1>" + brackets[i] + "</h1>" + phases[i][0];
+				}
+			}
+		}
+		if (matches!="") {
+			$("#results").html(matches);
+		}
+	}
+	setInterval (function() { setResults(); }, 5000);
+	
+	function setEvent() {
+		$("#results").html("Setting event...");
+		brackets = [];
+		groups = [];
+		players = [];
+		playerCount = 0;
+		if (1==1 ||(eventName!=$('#eventName').val() && $('#eventName').val()!="")) {
+			eventName = $('#eventName').val();
+			$.getJSON(activeCors + "https://api.smash.gg/tournament/" + eventName + "?expand[]=event&expand[]=phase&expand[]=groups&expand[]=seeds&expand[]=sets", function(f){
+				var group = f.entities.groups;
+				var phase = f.entities.phase;
+				var events = f.entities.event;
+				var eventsId = [];
+				var k = 0;
+				while (k<events.length) {
+					eventsId[events[k].id]=events[k].name;
+					k++;
+				}
+				k = 0;
+				while (k<group.length) {
+					groups[group[k].id]=group[k].phaseId;
+					k++;
+				}
+				k = 0;
+				while (k<phase.length) {
+					brackets[phase[k].id]=eventsId[phase[k].eventId] + ": " + phase[k].name;
+					k++;
+				}
+				var selectBuild = "<option value=0 selected='selected'>All</option>";
+				for (var i in brackets) {
+					selectBuild = selectBuild + "<option value=" + i + ">" + brackets[i] + " - " + i + "</option>";
+				}
+				$("#phaseID").html(selectBuild);
+				$("#results").html("Event set!");
+			}).fail(function() { $("#results").html("Failed to load, check event name or try another CORS proxy."); });
+		} else {
+			$("#results").html("Event set!");
+		}
+	}
+	
+	function fetchResults() {
+				
+				$("#results").html("Fetching results...");
+				
+				for (var h in groups) {
+					for (var j in brackets) {
+						if (j==groups[h] && groups[h]>0 && j>0) {
+							$.getJSON(activeCors + "https://api.smash.gg/phase_group/" + h + "?expand%5B%5D=sets&expand%5B%5D=standings&expand%5B%5D=seeds", function(f){
+								var tempKey = 0;
+								var entrants = f.entities.seeds;
+								var sets = f.entities.sets;
+								var id = f.entities.groups.id;
+								var phaseid = f.entities.groups.phaseId;
+								var entrantId;
+								var i = 0;
+								var count = 0;
+								var entrantArr = [];
+								var winner;
+								var loser;
+								while (i<entrants.length) {
+									for (var key in entrants[i].mutations.participants) {
+										for (var key2 in entrants[i].mutations.entrants) {
+											if (entrants[i].mutations.entrants[key2].participantIds[0]==key) {
+												entrantArr[entrants[i].mutations.entrants[key2].id]=entrants[i].mutations.participants[key].gamerTag;
+												if (typeof players[entrants[i].mutations.entrants[key2].id] == "undefined") {
+													players[entrants[i].mutations.entrants[key2].id] = [];
+													playerCount++;
+												}
+												players[entrants[i].mutations.entrants[key2].id][0]=entrants[i].mutations.participants[key].gamerTag;
+											}
+										}
+									}
+									i++;
+								}
+								i = 0;
+								while (i<sets.length) {
+									if (sets[i].winnerId!=null && sets[i].loserId!=null) {
+										if (sets[i].winnerId==sets[i].entrant1Id) {
+											winner = sets[i].entrant1Score;
+											loser = sets[i].entrant2Score;
+										} else {
+											loser = sets[i].entrant1Score;
+											winner = sets[i].entrant2Score;
+										}
+										if (loser<0) {
+											loser = "DQ"
+										}
+										if (winner<0) {
+											winner = "DQ"
+										}
+										if (winner==null) {
+											winner="W";
+										}
+										if (loser==null) {
+											loser="L";
+										}
+										players[sets[i].winnerId][sets[i].id] = "W: " + entrantArr[sets[i].loserId];
+										players[sets[i].loserId][sets[i].id] = "L: " + entrantArr[sets[i].winnerId];
+										results[sets[i].id] =  [phaseid, entrantArr[sets[i].winnerId] + " DEFEATS " + entrantArr[sets[i].loserId] + " (" + winner + "-" + loser + ")"];
+										count++;
+									}
+									i++;
+								}
+							}).fail(function() { $("#results").html("Failed to load, check event name or try another CORS proxy."); });
+						}
+					}
+				}
+				
+	}
+
+</script>
+
+</body>
+</html>
