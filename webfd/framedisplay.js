@@ -65,8 +65,29 @@ function initSettings()
     }
     //
   }, false);
-  
+
+
+  if (window.location.hash.indexOf("&") !== -1){
+      urlChar = window.location.hash.substring(1,window.location.hash.indexOf("&"));
+      urlMove=window.location.hash.substring(window.location.hash.indexOf("&")+1,);
+  }
+ 
   changeChar();
+
+  if (typeof urlChar !== 'undefined'){
+      document.getElementById("selectCharHidden").value=urlChar;
+      document.getElementById("p1_select").innerHTML="<img src=\"../images/" + urlChar + "_card.png\" style=\"width: 100%; height: 100%;\">"
+      if(urlChar == "purin"){
+        document.getElementById("p1_select").innerHTML="<img src=\"../images/jiggly_card.png\" style=\"width: 100%; height: 100%;\">"
+      }
+      console.log(urlMove);
+      changeChar();
+      globalVar.attack.value=urlMove
+      console.log(globalVar.attack.value);
+      changeAtt();
+      console.log(globalVar.attack.value);
+  }
+
   // Uses function changeSpeed, otherwise only the element "selectSpeed" is changed
   changeSpeed(globalVar.selectSpeed);
   initKeydown();
@@ -124,6 +145,7 @@ function changeAtt(attDropdownObject)
   // Changes the number of maximum frames for the attack
   globalVar.maxFrame = characterObject[globalVar.character.value].move[globalVar.attack.value].totalFrames
   document.getElementById("maxFrameSpan").innerHTML = '/' + globalVar.maxFrame;
+  window.location.hash = globalVar.character.value + "&" + globalVar.attack.value;
   
   changeSourceVid();
 }
